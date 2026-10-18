@@ -52,6 +52,22 @@ def main() -> None:
         r = c.delete("/functions/cpu2")
         print(f"8) delete cpu2   -> {r.status_code}")
 
+        # зависимость duration_ms от параметра n
+        print("\nduration_ms from cpu:")
+        n_list = [1_000_000, 5_000_000, 20_000_000]
+        for n in n_list:
+            n_tests = 100
+            mean = 0
+            for i in range(n_tests):
+                r = test_cpu(c, n)
+                mean += r.json()["duration_ms"]
+            mean /= n_tests
+            print(f"{n}: {mean}ms")
+
+def test_cpu(c: httpx.Client, n: int):
+    r = c.post("/functions/cpu/invoke", json={"n": n})
+    return r
+
 
 if __name__ == "__main__":
     main()
