@@ -20,6 +20,8 @@ def execute(module: str, handler: str, event: Any, timeout: float) -> dict:
         handler - название функции в модуле
         event - данные для запуска (словарь-событие)
         timeout - ограничение времени выполнения
+
+    return: словарь с результатом выполнения запроса
     """
     q: mp.Queue = mp.Queue() # межпроцессорная очередь
     # дочерний процесс, выполняющий функцию _worker
