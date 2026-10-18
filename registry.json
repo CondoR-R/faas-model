@@ -1,0 +1,32 @@
+{
+  "hello": {
+    "name": "hello",
+    "module": "functions.hello",
+    "handler": "handler",
+    "timeout": 5.0
+  },
+  "echo": {
+    "name": "echo",
+    "module": "functions.echo",
+    "handler": "handler",
+    "timeout": 5.0
+  },
+  "slow": {
+    "name": "slow",
+    "module": "functions.slow",
+    "handler": "handler",
+    "timeout": 2.0
+  },
+  "error": {
+    "name": "error",
+    "module": "functions.error",
+    "handler": "handler",
+    "timeout": 5.0
+  },
+  "cpu": {
+    "name": "cpu",
+    "module": "functions.cpu",
+    "handler": "handler",
+    "timeout": 10.0
+  }
+}
